@@ -46,7 +46,7 @@ public class MergeSort {
         int[] tempArray = new int[end - start];
 
         while (i < mid && j < end) {
-            tempArray[temp++] = A[i] <= A[j] ? A[i++] : A[j++];
+            tempArray[temp++] = A[i] <= A[j] ? A[i++] : A[j++]; //A[i] >= A[j] for descending order
         }
 
         System.arraycopy(A, i, A, start + temp, mid - i); // for bigger element to take its place
