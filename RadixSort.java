@@ -49,7 +49,7 @@ public class RadixSort {
     }
 
     public static int getDigit(int position, int value, int radix) {
-        return value / (int) Math.pow(10, position) % radix;
+        return value / (int) Math.pow(radix, position) % radix;
 /*
         eg for value = 4725, position = 2 (hundred’s position),the number to be returned should be 7
         Therefore, (4725 / 10 ^ 2) % radix = 10
