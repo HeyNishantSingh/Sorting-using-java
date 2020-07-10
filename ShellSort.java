@@ -1,37 +1,34 @@
-package com.company.Sorting;
+package com.company.sorting;
 
-import java.lang.reflect.Array;
-
-public class ShellSort<a> {
+public class ShellSort {
     public static void main(String args[]) {
 
-        int[] a = {5, 4, 3, 2, 1};
-        int j, gap, n = a.length;
+        int[] inpArr = {5, 4, 3, 2, 1};
+        int gap, n = inpArr.length;
         int newElement;
 
-        for (gap = a.length / 2; gap > 0; gap /= 2) {
-            for (int i = gap; i <n ; i++) {
+        for (gap = inpArr.length / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < n; i++) {
+                int j = i;
+                newElement = inpArr[i];
 
-                j = i;
-                newElement = a[i];
-
-                while (j >= gap && a[j - gap] > newElement) {  // here it will not be a[i] as a[i] gets replaced eg 32545
-                    a[j] = a[j - gap];// now we will compare the 0th element with the 2nd element
-                     j -= gap;        // i.e 3,5 and here when condition fails and swap does not occur
-
+              /*
+                 in while loop it will not be inpArr[i] as inpArr[i] gets replaced eg 32545
+                 now we will compare the 0th element with the 2nd element
+                 i.e 3,5 and here when condition fails and swap does not occur
+              */
+                while (j >= gap && inpArr[j - gap] > newElement) {
+                    inpArr[j] = inpArr[j - gap];
+                    j -= gap;
                 }
-                a[j] = newElement;
-
-
+                inpArr[j] = newElement;
             }
-
         }
-        for (int i : a) {
+        //for output
+        for (int i : inpArr) {
             System.out.print(i + " ");
         }
     }
-
-
 }
 
 

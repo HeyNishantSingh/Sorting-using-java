@@ -1,10 +1,7 @@
-package com.company.Sorting;
-
-import java.util.Scanner;
+package com.company.sorting;
 
 public class SelectionSort {
     public static void main(String[] args) {
-
         int[] a = {5, 4, 3, 2, 1};
         int n = a.length;
 
@@ -15,23 +12,19 @@ public class SelectionSort {
                     largest = j;
                 }
                 swap(a, largest, i);
-
-
             }
         }
 
-        //enhanced for loop to print the output
+        //For output
         for (int i : a) {
             System.out.print(i + " ");
-
         }
-
     }
 
     public static void swap(int[] array, int i, int j) {
-        if (i == j) {
+        if (i == j)
             return;
-        } else {
+        else {
             int temp = array[i];
             array[i] = array[j];
             array[j] = temp;

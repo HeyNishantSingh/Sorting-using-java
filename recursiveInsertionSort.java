@@ -16,6 +16,7 @@ public class recursiveInsertionSort {
     private static void insertionSort(int[] a, int n) {
         if (n < 2)
             return;
+
         insertionSort(a, n - 1);
 
         int i, newElement = a[n - 1]; //as n-1 is the last element which has not been sorted

@@ -1,50 +1,43 @@
-package com.company.Sorting;
+package com.company.sorting;
 
 public class CountingSort {
     public static void main(String args[]) {
-        int[] a = {1, 2, 1, 3, 2, 4, 5, 5};
-        int max = a[0], min = a[0];
+        int[] arrInp = {1, 2, 1, 3, 2, 4, 5, 5};
+        int max = arrInp[0], min = arrInp[0];
 
-        for (int i = 1; i < a.length; i++) {  /* note this is done if user himself
-                                                 does not enter the value of max and min */
-            if (a[i] > max) {
-                max = a[i];
-            } else if (a[i] < min) {
-                min = a[i];
+        /* note this is done if user himself
+           does not enter the value of max and min */
+        for (int i = 1; i < arrInp.length; i++) {
+            if (arrInp[i] > max) {
+                max = arrInp[i];
+            } else if (arrInp[i] < min) {
+                min = arrInp[i];
             }
 
         }
-        countingSort(a, min, max);
+        countingSort(arrInp, min, max);
 
         System.out.print("the sorted array is \n");
-
-        for (int element : a) {
+        for (int element : arrInp) {
             System.out.print(element + " ");
-
         }
-
     }
 
-    public static void countingSort(int a[], int min, int max) {
+    public static void countingSort(int inputArr[], int min, int max) {
+        int[] tempArr = new int[(max - min) + 1];
 
-
-        int[] B = new int[(max - min) + 1];
-
-        for (int i = 0; i < a.length; i++) {  // to assign the counting array to count the
-            // no of occurrences of each element
-            B[a[i] - min]++;
+        // to assign the counting array to count the no of occurrences of each element
+        for (int i = 0; i < inputArr.length; i++) {
+            tempArr[inputArr[i] - min]++;
         }
 
         int j = 0;
-        for (int i = min; i < max; i++) { //as the whole of the array A or out input array
-                                          // will be between min and max element
-
-            while (B[i - min] > 0) {
-                a[j++] = i;
-                B[i - min]--;
+        //as the complete inputArr and tempArr will be between min and max element
+        for (int i = min; i < max; i++) {
+            while (tempArr[i - min] > 0) {
+                inputArr[j++] = i;
+                tempArr[i - min]--;
             }
-
         }
-
     }
 }
